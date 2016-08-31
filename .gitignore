@@ -1,0 +1,11 @@
+*.class
+*~
+TEST-*.xml
+*.exec
+*.war
+TAGS
+\#*
+.DS_Store
+.classpath
+.ignore
+#other

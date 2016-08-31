@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<system-config>
+	<id-service-url>http://localhost:8090</id-service-url>
+	<face-service-url>http://localhost:8099</face-service-url>	
+	<asw-s3-bucket>dev-bucket-c58f0569</asw-s3-bucket>
+	<data-key-id>arn:aws:kms:us-east-1:434141935580</data-key-id>
+	<kms-end-point>https://kms.us-east-1.amazonaws.com</kms-end-point>
+	<ses-sender-email>swang@citizant.com</ses-sender-email>
+	<load-balancer-address>http://localhost:8888</load-balancer-address>
+	<reset-email-subject>reset</reset-email-subject>
+	<reset-email-content>some content</reset-email-content>
+	<confirm-email-subject>something changed</confirm-email-subject>
+	<confirm-email-content>yada</confirm-email-content>
+	<card-instruction>rtfm</card-instruction>
+	<server-id>fss-01</server-id>
+</system-config>
