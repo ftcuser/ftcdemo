@@ -59,7 +59,7 @@ public class KudoControllerTest {
         List<UserBean> returnedUsers = (List<UserBean>) m.get("users");
         Assert.assertEquals(1, users.size());
         Assert.assertEquals("Listed", users.get(0).getFirstName());
-        Assert.assertEquals("A kudo sent to Tootie Tooer", (String) m.get("msg"));
+        Assert.assertEquals("1 kudo sent to Tootie Tooer", (String) m.get("msg"));
 	}
 
 }
