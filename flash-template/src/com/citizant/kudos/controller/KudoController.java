@@ -52,7 +52,7 @@ public class KudoController extends BaseController {
 		kudoBean.setKudoDate(new Date());
 		
 		kudoService.saveKudo(kudoBean);
-		mav.addObject("msg", "Kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
+		mav.addObject("msg", "A kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
 		
 		//to do :
 	
