@@ -9,14 +9,17 @@ body {
 }
 
 a,
-.navbar-default .navbar-link {
+.navbar-default .navbar-link,
+.navbar-default .navbar-nav>li>a {
   color: #00578d;
 }
 
 a:hover,
 a:focus,
 .navbar-default .navbar-link:hover,
-.navbar-default .navbar-link:focus {
+.navbar-default .navbar-link:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
   color: #555;
 }
 
@@ -28,6 +31,20 @@ h2 + .btn {
   border-radius: 0px;
 }
 
+/* Always allow nvbar links to float */
+.navbar-nav>li {
+  float: left;
+}
+
+.navbar ul {
+  margin: 0;
+}
+
+.navbar-default .navbar-text {
+  color: #666;
+}
+
+
 .btn .glyphicon {
   margin-right: 10px;
 }
@@ -35,7 +52,7 @@ h2 + .btn {
 .page-header {
   margin-top: 0;
   background-color: #0D2235;
-	padding: 5px 20px 10px;
+	padding: 5px 0 10px;
 	color: white;
 }
 
@@ -135,8 +152,17 @@ input:not ([type="checkbox"] ), input:not ([type="radio"] ) {
   margin-right: 10px;
 }
 
-#analyticsFilter {
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+  vertical-align: middle;
+}
 
+.dataTables_info {
+  opacity: .5;
 }
 
 @media (min-width: 768px) {

@@ -44,7 +44,7 @@
             <hr/>
             
       			<div id="divButtonPanelId" class="text-center">
-      				<button id="btnSubmit" class="btn btn-primary" type="button" value="Give a Point" onclick="createUser();">Add User</button>
+      				<button id="btnSubmit" class="btn btn-primary" type="button" value="Add User" onclick="createUser();">Add User</button>
       				<button id="btnClose" class="btn btn-default" type="button"  onclick="closePage();">Cancel</button>
       			</div>
       		</form>
