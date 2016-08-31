@@ -137,4 +137,24 @@ public class KudoServiceImpl implements KudoService {
 		kudo.setComment(bean.getComment());
         return kudo;
     }
+	
+	@Override
+	public List<KudoBean> getKudosReceived(String email) {
+
+		List<KudoBean> allKudos = getAllKudos();
+		List<KudoBean> receivedKudos = filterKudos(email, allKudos);
+		return receivedKudos;
+	}
+	
+	public List<KudoBean> filterKudos(String email, List<KudoBean> allKudos) {
+		List<KudoBean> receivedKudos = new ArrayList<>();
+		for (KudoBean kb : allKudos) {
+			if (kb.getToEmail().equalsIgnoreCase(email.trim())) {
+				receivedKudos.add(kb);
+			}
+		}
+		return receivedKudos;
+	}
+	
+	
 }

@@ -1,5 +1,7 @@
 package com.citizant.kudos.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.citizant.kudos.bean.KudoBean;
 import com.citizant.kudos.bean.UserBean;
 import com.citizant.kudos.common.AppConstants;
 import com.citizant.kudos.common.SystemConfig;
@@ -27,6 +30,8 @@ public class KudosHomeController extends BaseController {
 
     public static final String LOGIN_TILE = "tile.loginPage";
     public static final String START_TILE = "tile.startPage";
+    
+    private SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
 
 
 	@Autowired
@@ -90,12 +95,26 @@ public class KudosHomeController extends BaseController {
 		if (userBean != null) {
 			ModelAndView mav = new ModelAndView(START_TILE);
 			List<UserBean> users = kudoService.getUsers();
+			for (UserBean user : users) {
+				setUserKudoReceivedFlag(user, userBean.getEmail());
+			}
 			mav.addObject("users", users);
 			return mav;
 		}
 		return new ModelAndView(LOGIN_TILE);
 	}
 	
+	private void setUserKudoReceivedFlag(UserBean user, String email) {
+		List<KudoBean> kudosReceived = kudoService.getKudosReceived(user.getEmail());
+		Date today = new Date();
+		for (KudoBean kb : kudosReceived) {
+			if (kb.getFromEmail().equals(email) &&
+				dateFormatter.format(kb.getKudoDate()).equals(dateFormatter.format(today))) {
+				user.setKudoReceived(true);
+			}
+		}
+	}
+
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request) {
 		request.getSession().removeAttribute(AppConstants.LOGIN_USER);

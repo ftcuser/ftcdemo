@@ -16,7 +16,7 @@ public class UserBean implements Serializable {
 	private String role;
 	private boolean active = true;
 	private boolean deleted = false;
-	
+	private boolean kudoReceived = false;
 	
 	public boolean isActive() {
 		return active;
@@ -65,5 +65,11 @@ public class UserBean implements Serializable {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public boolean isKudoReceived() {
+		return kudoReceived;
+	}
+	public void setKudoReceived(boolean kudoReceived) {
+		this.kudoReceived = kudoReceived;
 	}
 }

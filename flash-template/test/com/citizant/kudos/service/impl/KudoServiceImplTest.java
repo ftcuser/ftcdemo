@@ -195,4 +195,35 @@ public class KudoServiceImplTest {
 		kudo.setKudoDate(createDate);
 		return kudo;
 	}
+    
+    @Test
+	public void test_kudoFilter() {
+		Date createDate = new Date();
+		User fromUser = createTestUser("Buddy", "Holly");
+		User toUser =  createTestUser("Mary", "Tyler-Moore");
+
+		KudoBean kudoFound = createTestKudoBean(createDate, "from@example.com", "to@example.com", "the message");
+		KudoBean kudoNotFound = createTestKudoBean(createDate, "from@example.com", "someoneelse@example.com", "what?");
+
+		List<KudoBean> allKudos = new ArrayList<>();
+		allKudos.add(kudoFound);
+		allKudos.add(kudoNotFound);
+
+		List<KudoBean> filteredKudos = new ArrayList<>();
+		filteredKudos.add(kudoFound);
+
+		List<KudoBean> actualkudos = ksi.filterKudos("to@example.com", allKudos);
+		Assert.assertEquals(filteredKudos.size(),actualkudos.size());
+		Assert.assertEquals(filteredKudos.get(0), actualkudos.get(0));
+	}
+    
+    private KudoBean createTestKudoBean(Date sentDate, String fromEmail, String toEmail, String message) {
+		KudoBean kudoBean = new KudoBean();
+		kudoBean.setToEmail(toEmail);
+		kudoBean.setFromEmail(fromEmail);
+		kudoBean.setComment(message);
+
+		kudoBean.setKudoDate(sentDate);
+		return kudoBean;
+	}
 }
