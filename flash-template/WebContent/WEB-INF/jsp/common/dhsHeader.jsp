@@ -43,7 +43,7 @@
         <li>Environment : <%=SystemConfig.getInstance().getEnv() %></li>
       </ul>
 
-      <div id="logo" class="pull-left"><img src="${pageContext.request.contextPath}/images/dhs.png" width="100px" height="100px"></div>
+      <div id="logo" class="pull-left"><img alt="DHS logo" src="${pageContext.request.contextPath}/images/dhs.png" width="100px" height="100px"></div>
       <h1 class="pull-left">FLASH</h1>
     </div>
   </div>

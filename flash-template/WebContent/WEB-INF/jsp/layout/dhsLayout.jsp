@@ -91,7 +91,7 @@
 
 	<div class="container-fluid">
  		<div id="loadingPopupId" class="loadingPopup" style="display:none">
-      <img src="${pageContext.request.contextPath}/images/loading.gif" id="loadingGifId" alt="Loading..." />
+      <img src="${pageContext.request.contextPath}/images/ajax_loader_blue_128.gif" id="loadingGifId" alt="Loading..." />
     </div>
 
 		<tiles:insertAttribute name="body-content"/>
