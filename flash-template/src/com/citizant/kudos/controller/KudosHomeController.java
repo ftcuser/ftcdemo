@@ -95,16 +95,8 @@ public class KudosHomeController extends BaseController {
 		UserBean userBean = (UserBean)request.getSession().getAttribute(AppConstants.LOGIN_USER);
 		if (userBean != null) {
 			ModelAndView mav = new ModelAndView(START_TILE);
-			List<UserBean> users = kudoService.getUsers();
-			List<UserBean> newList = new ArrayList<>();
-			for (UserBean user : users) {
-				if (user.getEmail().equals(userBean.getEmail())) {
-					continue;
-				}
-				setUserKudoReceivedFlag(user, userBean.getEmail());
-				newList.add(user);
-			}
-			mav.addObject("users", newList);
+	
+			mav.addObject("users", kudoService.getHomeUsers(userBean));
 			return mav;
 		}
 		return new ModelAndView(LOGIN_TILE);

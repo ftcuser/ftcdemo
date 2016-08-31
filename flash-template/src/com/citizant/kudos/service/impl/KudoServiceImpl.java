@@ -1,5 +1,6 @@
 package com.citizant.kudos.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,8 @@ public class KudoServiceImpl implements KudoService {
 
 	@Autowired
 	private KudoDao kudoDao;
-
+	private SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
+	
 	@Override
 	public List<UserBean> getUsers() {
 		List<UserBean> userBeans = new ArrayList<>();
@@ -156,5 +158,26 @@ public class KudoServiceImpl implements KudoService {
 		return receivedKudos;
 	}
 	
-	
+	public List<UserBean> getHomeUsers(UserBean formUser){
+		List<UserBean> users = getUsers();
+		List<UserBean> newList = new ArrayList<>();
+		for (UserBean user : users) {
+			if (user.getEmail().equals(formUser.getEmail())) {
+				continue;
+			}
+			setUserKudoReceivedFlag(user, formUser.getEmail());
+			newList.add(user);
+		}
+		return newList;
+	}
+	private void setUserKudoReceivedFlag(UserBean user, String email) {
+		List<KudoBean> kudosReceived = getKudosReceived(user.getEmail());
+		Date today = new Date();
+		for (KudoBean kb : kudosReceived) {
+			if (kb.getFromEmail().equals(email) &&
+				dateFormatter.format(kb.getKudoDate()).equals(dateFormatter.format(today))) {
+				user.setKudoReceived(true);
+			}
+		}
+	}
 }

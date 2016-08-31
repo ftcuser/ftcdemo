@@ -1,5 +1,7 @@
 package com.citizant.kudos.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class KudoController extends BaseController {
 	@Autowired
 	private KudoService kudoService;
 
-	
+	  private SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
 	@RequestMapping("/start")
 	public ModelAndView kudoPage(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("tile.kudoPage");
@@ -52,12 +54,12 @@ public class KudoController extends BaseController {
 		kudoBean.setKudoDate(new Date());
 		
 		kudoService.saveKudo(kudoBean);
-		mav.addObject("msg", "A kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
+		mav.addObject("msg", "1 kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
 		
-		//to do :
-	
-		List<UserBean> users = kudoService.getUsers();
-		mav.addObject("users", users);
+		mav.addObject("users", kudoService.getHomeUsers(fromUser));
+
 		return mav;
 	}
+	
+
 }
