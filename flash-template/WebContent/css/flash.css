@@ -68,6 +68,15 @@ h2 + .btn {
   opacity: .8;
 }
 
+#helpModal li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#helpModal .btn[disabled] {
+  opacity: 1 !important;
+}
+
 @media screen and (max-width:60em) {
   #branding h1 {
     font-size: 24px;
