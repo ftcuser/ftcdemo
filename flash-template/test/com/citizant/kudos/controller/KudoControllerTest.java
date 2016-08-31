@@ -35,6 +35,9 @@ public class KudoControllerTest {
 	@Before
 	public void setup() throws Exception {
 		MockitoAnnotations.initMocks(this);
+        mockRequest = mock(HttpServletRequest.class);
+        mockSession = mock(HttpSession.class);
+        when(mockRequest.getSession()).thenReturn(mockSession);
 	}
 
     public String formatEmail(String fname, String lname, String email) {
@@ -43,10 +46,7 @@ public class KudoControllerTest {
 	
 	@Test
 	public void test_create() throws IOException {
-        mockRequest = mock(HttpServletRequest.class);
-        mockSession = mock(HttpSession.class);
         when(mockRequest.getParameter("kudoto")).thenReturn("some@example.com");
-        when(mockRequest.getSession()).thenReturn(mockSession);
         when(mockSession.getAttribute(AppConstants.LOGIN_USER)).thenReturn(new UserBean("From","Frummelson","","",""));
         when(kudoService.getUserByEmail("some@example.com")).thenReturn(new UserBean("Tootie","Tooer","","",""));
         List<UserBean> users = new ArrayList<>();
@@ -59,7 +59,7 @@ public class KudoControllerTest {
         List<UserBean> returnedUsers = (List<UserBean>) m.get("users");
         Assert.assertEquals(1, users.size());
         Assert.assertEquals("Listed", users.get(0).getFirstName());
-        Assert.assertEquals("Kudo sent to Tootie Tooer", (String) m.get("msg"));
+        Assert.assertEquals("A kudo sent to Tootie Tooer", (String) m.get("msg"));
 	}
 
 }
