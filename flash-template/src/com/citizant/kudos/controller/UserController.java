@@ -36,6 +36,24 @@ public class UserController extends BaseController {
 		return mav;
 	}
 	
+	@RequestMapping("/deactivate")
+	public String deactivateUser(HttpServletRequest request) {
+		String email = request.getParameter("email");
+		UserBean user = kudoService.getUserByEmail(email);
+		user.setActive(false);
+		kudoService.saveUser(user);
+		return "redirect: /servlet/home/start";
+	}
+	
+	@RequestMapping("/activate")
+	public String activateUser(HttpServletRequest request) {
+		String email = request.getParameter("email");
+		UserBean user = kudoService.getUserByEmail(email);
+		user.setActive(true);
+		kudoService.saveUser(user);
+		return "redirect: /servlet/home/start";
+	}
+	
 	@RequestMapping("/list")
 	public ModelAndView userListPage() {
 		ModelAndView mav = new ModelAndView("tile.listUserPage");

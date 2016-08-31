@@ -31,7 +31,7 @@ public class UserBean implements Serializable {
 		this.deleted = deleted;
 	}
 	public boolean isAdmin() {
-		return role != null && role.equals(ADMIN_USER);
+		return role != null && role.equalsIgnoreCase(ADMIN_USER);
 	}
 	public boolean isSuperUser() {
 		return role != null && role.equals(SUPER_USER);

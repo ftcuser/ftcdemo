@@ -31,14 +31,26 @@
 			<td>${user.lastName}</td>
 			<td class="text-center">
 			<c:choose>
-			<c:when test="${user.kudoReceived}">
-  		  	Received Kudo Already!
-  		    </c:when>    
-			<c:otherwise>
-			<a href="#" id="${user.email}" class="btn btn-sm btn-primary" onclick="javascript:giveKudo('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a>
-			</c:otherwise>
+				<c:when test="${user.kudoReceived}">
+  		  			Received Kudo Already!
+  		    	</c:when>    
+				<c:otherwise>
+					<a href="#" id="${user.email}" class="btn btn-sm btn-primary" onclick="javascript:giveKudo('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a>
+				</c:otherwise>
 			</c:choose>
-		  </td>						
+		  	</td>
+		  	<% if (userBean.isAdmin()) { %>
+		  	<td>
+		  		<c:choose>
+					<c:when test="${user.active}">
+						<a href="#" id="${user.email}" class="btn btn-sm btn-primary" onclick="javascript:deactivateUser('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Deactivate</a>
+  		    		</c:when>    
+					<c:otherwise>
+						<a href="#" id="${user.email}" class="btn btn-sm btn-primary" onclick="javascript:activateUser('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Activate</a>
+					</c:otherwise>
+				</c:choose>
+		  	</td>
+		  	<% } %>
 		</tr>
     </c:forEach>
 	</tbody>
@@ -48,6 +60,12 @@
 
 function giveKudo(email) {
 	document.location = "${pageContext.request.contextPath}/servlet/kudo/start?email=" + email;
+}
+function deactivateUser(email) {
+	document.location = "${pageContext.request.contextPath}/servlet/user/deactivate?email=" + email;
+}
+function activateUser(email) {
+	document.location = "${pageContext.request.contextPath}/servlet/user/activate?email=" + email;
 }
 $(document).ready(function() {
 	if($("#receivedTable")!=null) {
