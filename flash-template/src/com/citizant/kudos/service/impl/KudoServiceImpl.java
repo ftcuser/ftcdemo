@@ -1,14 +1,18 @@
 package com.citizant.kudos.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.citizant.kudos.bean.KudoBean;
 import com.citizant.kudos.bean.UserBean;
 import com.citizant.kudos.dao.KudoDao;
+import com.citizant.kudos.domain.Kudo;
 import com.citizant.kudos.domain.User;
 import com.citizant.kudos.service.KudoService;
+import com.citizant.kudos.util.StringUtil;
 
 public class KudoServiceImpl implements KudoService {
 
@@ -81,5 +85,56 @@ public class KudoServiceImpl implements KudoService {
 		}
 		kudoDao.save(user);
 	}
+	
+	@Override
+	public List<KudoBean> getAllKudos() {
+		List<KudoBean> kudoBeans = new ArrayList<>();
+		List<Kudo> kudos = kudoDao.getAllKudos();
+		for(Kudo kudo : kudos){
+			kudoBeans.add(makeKudoBean(kudo, kudoDao));
+		}
+		return kudoBeans;
+	}
+	
+	public KudoBean makeKudoBean(Kudo kudo, KudoDao kudoDao) {
+		KudoBean bean = new KudoBean();
+		bean.setFromEmail(kudo.getFromEmail());
+		bean.setToEmail(kudo.getToEmail());
+		bean.setComment(kudo.getComment());
+		bean.setKudoDate(kudo.getKudoDate());
 
+		User user = kudoDao.getUserByEmail(kudo.getFromEmail());
+		if (user != null) {
+			bean.setFromFirstName(user.getFirstName());
+			bean.setFromLastName(user.getLastName());
+		} else {
+			bean.setFromFirstName(StringUtil.EMPTY_STRING);
+			bean.setFromLastName(StringUtil.EMPTY_STRING);
+		}
+
+		user = kudoDao.getUserByEmail(kudo.getToEmail());
+		if (user != null) {
+			bean.setToFirstName(user.getFirstName());
+			bean.setToLastName(user.getLastName());
+		} else {
+			bean.setToFirstName(StringUtil.EMPTY_STRING);
+			bean.setToLastName(StringUtil.EMPTY_STRING);
+		}
+		return bean;
+	}
+
+	@Override
+	public void saveKudo(KudoBean kudoBean) {
+		kudoDao.save(makeKudoFromKudoBean(kudoBean));
+	}
+	
+	public Kudo makeKudoFromKudoBean(KudoBean bean) {
+		Kudo kudo = new Kudo();
+		kudo.setKudoDate(bean.getKudoDate());
+		kudo.setFromEmail(bean.getFromEmail());
+		kudo.setToEmail(bean.getToEmail());
+		kudo.setKudoDate(new Date());
+		kudo.setComment(bean.getComment());
+        return kudo;
+    }
 }

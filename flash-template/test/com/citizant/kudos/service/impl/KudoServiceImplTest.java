@@ -14,9 +14,10 @@ import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.*;
 
-
+import com.citizant.kudos.bean.KudoBean;
 import com.citizant.kudos.bean.UserBean;
 import com.citizant.kudos.dao.KudoDao;
+import com.citizant.kudos.domain.Kudo;
 import com.citizant.kudos.domain.User;
 
 
@@ -160,4 +161,38 @@ public class KudoServiceImplTest {
         Assert.assertEquals(true, user.isDeleted());
         verify(mockKudoDao).save(user);
     }
+    
+    @Test
+	public void test_makeKudoBeanFromKudo() {
+		Date createDate = new Date();
+		User fromUser = createTestUser("Buddy", "Holly");
+		User toUser =  createTestUser("Mary", "Tyler-Moore");
+
+		Kudo kudo = createTestKudo(createDate, "from@example.com", "to@example.com", "the message");
+
+		Mockito.when(mockKudoDao.getUserByEmail("from@example.com")).thenReturn(fromUser);
+		Mockito.when(mockKudoDao.getUserByEmail("to@example.com")).thenReturn(toUser);
+
+		KudoBean kb = ksi.makeKudoBean(kudo, mockKudoDao);
+
+		Assert.assertEquals("from@example.com", kb.getFromEmail());
+		Assert.assertEquals("to@example.com", kb.getToEmail());
+		Assert.assertEquals("the message", kb.getComment());
+		//Assert.assertEquals(createDate, kb.getSentDate());
+		Assert.assertEquals("Buddy", kb.getFromFirstName());
+		Assert.assertEquals("Holly", kb.getFromLastName());
+		Assert.assertEquals("Mary", kb.getToFirstName());
+		Assert.assertEquals("Tyler-Moore", kb.getToLastName());
+
+	}
+    
+    private Kudo createTestKudo(Date createDate, String fromEmail, String toEmail, String message) {
+		Kudo kudo = new Kudo();
+		kudo.setFromEmail(fromEmail);
+		kudo.setToEmail(toEmail);
+		kudo.setComment(message);
+
+		kudo.setKudoDate(createDate);
+		return kudo;
+	}
 }
