@@ -1,6 +1,7 @@
 package com.citizant.kudos.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -95,10 +96,15 @@ public class KudosHomeController extends BaseController {
 		if (userBean != null) {
 			ModelAndView mav = new ModelAndView(START_TILE);
 			List<UserBean> users = kudoService.getUsers();
+			List<UserBean> newList = new ArrayList<>();
 			for (UserBean user : users) {
+				if (user.getEmail().equals(userBean.getEmail())) {
+					continue;
+				}
 				setUserKudoReceivedFlag(user, userBean.getEmail());
+				newList.add(user);
 			}
-			mav.addObject("users", users);
+			mav.addObject("users", newList);
 			return mav;
 		}
 		return new ModelAndView(LOGIN_TILE);

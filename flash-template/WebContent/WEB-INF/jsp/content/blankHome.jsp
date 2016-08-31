@@ -29,9 +29,15 @@
 			<td>${user.email}</td>
 			<td>${user.firstName}</td>
 			<td>${user.lastName}</td>
-
 			<td class="text-center">
-  		  <a href="#" class="btn btn-sm btn-primary" onclick="javascript:giveKudo('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a>
+			<c:choose>
+			<c:when test="${user.kudoReceived}">
+  		  	Received Kudo Already!
+  		    </c:when>    
+			<c:otherwise>
+			<a href="#" id="${user.email}" class="btn btn-sm btn-primary" onclick="javascript:giveKudo('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a>
+			</c:otherwise>
+			</c:choose>
 		  </td>						
 		</tr>
     </c:forEach>
