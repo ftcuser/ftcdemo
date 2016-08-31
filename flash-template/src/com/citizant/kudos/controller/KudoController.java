@@ -1,5 +1,6 @@
 package com.citizant.kudos.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.citizant.kudos.bean.KudoBean;
 import com.citizant.kudos.bean.UserBean;
 import com.citizant.kudos.common.AppConstants;
 import com.citizant.kudos.service.KudoService;
@@ -35,7 +37,22 @@ public class KudoController extends BaseController {
 		UserBean fromUser = (UserBean)request.getSession().getAttribute(AppConstants.LOGIN_USER);
 		UserBean toUser = kudoService.getUserByEmail(request.getParameter("kudoto"));
 		
-		mav.addObject("msg", "Kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
+		KudoBean kudoBean = new KudoBean();
+		
+		kudoBean.setFromEmail(fromUser.getEmail());
+		kudoBean.setToEmail(toUser.getEmail());
+		kudoBean.setFromFirstName(fromUser.getFirstName());
+		kudoBean.setFromLastName(fromUser.getLastName());
+		
+		kudoBean.setToFirstName(toUser.getFirstName());
+		kudoBean.setToLastName(toUser.getLastName());
+		
+		kudoBean.setKudoCategory(request.getParameter("category"));
+		kudoBean.setComment(request.getParameter("comment"));
+		kudoBean.setKudoDate(new Date());
+		
+		kudoService.saveKudo(kudoBean);
+		mav.addObject("msg", "A kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
 		
 		//to do :
 	

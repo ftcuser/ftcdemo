@@ -17,7 +17,9 @@ public class KudoBean implements Serializable {
 	private String toEmail;
 	private Date kudoDate;
 	private String comment;
-	private File attachment;
+	private String attachment;
+	private String kudoCategory;
+	
 	public String getId() {
 		return id;
 	}
@@ -72,10 +74,18 @@ public class KudoBean implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public File getAttachment() {
+	
+	public String getAttachment() {
 		return attachment;
 	}
-	public void setAttachment(File attachment) {
+	public void setAttachment(String attachment) {
 		this.attachment = attachment;
 	}
+	public String getKudoCategory() {
+		return kudoCategory;
+	}
+	public void setKudoCategory(String kudoCategory) {
+		this.kudoCategory = kudoCategory;
+	}
+	
 }

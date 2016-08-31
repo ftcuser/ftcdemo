@@ -133,8 +133,8 @@ public class KudoServiceImpl implements KudoService {
 		kudo.setKudoDate(bean.getKudoDate());
 		kudo.setFromEmail(bean.getFromEmail());
 		kudo.setToEmail(bean.getToEmail());
-		kudo.setKudoDate(new Date());
 		kudo.setComment(bean.getComment());
+		kudo.setKudoCategory(bean.getKudoCategory());
         return kudo;
     }
 	
