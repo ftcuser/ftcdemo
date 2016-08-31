@@ -54,7 +54,7 @@ public class KudoController extends BaseController {
 		kudoBean.setKudoDate(new Date());
 		
 		kudoService.saveKudo(kudoBean);
-		mav.addObject("msg", "A kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
+		mav.addObject("msg", "1 kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
 		
 		//to do :
 		List<UserBean> users = kudoService.getUsers();
