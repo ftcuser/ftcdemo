@@ -34,12 +34,12 @@
 			<td>${user.lastName}</td>
 			<td class="text-center">
 			<c:choose>
-			<c:when test="${user.kudoReceived}">
-  		  	Received Kudo Already!
-  		    </c:when>
-			<c:otherwise>
-			<a href="#" id="${user.email}" class="btn btn-sm btn-primary" onclick="javascript:giveKudo('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a>
-			</c:otherwise>
+  			<c:when test="${user.kudoReceived}">
+    		  <i class="glyphicon glyphicon-star"></i> Kudo Received!
+    		</c:when>
+  			<c:otherwise>
+    			<a href="#" id="${user.email}" class="btn btn-sm btn-primary" onclick="javascript:giveKudo('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a>
+  			</c:otherwise>
 			</c:choose>
 		  </td>						
 		</tr>
