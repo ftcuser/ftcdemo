@@ -53,8 +53,8 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li><a href="#">Give Kudos <span class="sr-only">(current)</span></a></li>
-      <li><a href="${pageContext.request.contextPath}/servlet/user/startCreate">Add a User</a></li>
+      <li><a href="${pageContext.request.contextPath}/servlet/home/start"><i class="glyphicon glyphicon-star"></i> Give Kudos</a></li>
+      <li><a href="${pageContext.request.contextPath}/servlet/user/startCreate"><i class="glyphicon glyphicon-user"></i> Add a User</a></li>
     </ul>
 
     <p class="navbar-text navbar-right">Signed in as <%=userBean.getEmail() %> <a class="navbar-link" href="javascript:confirmLogout();">(Logout)</a></p>

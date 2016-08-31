@@ -11,45 +11,46 @@
 	UserBean userBean = (UserBean)session.getAttribute(AppConstants.LOGIN_USER);
 %>
 
-<div id="divContainerId" class="container">
+<h2>Add a User</h2>
 
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div id="divPanelId" class="panel panel-default">
-      	<div id="divPanelHeadingId" class="panel-heading">
-      		<h3 class="panel-title"> User Registration
-      		  <span class="text-danger">${msg}</span>
-      		</h3>
-      	</div>
-      	<div id="divPanelBodyId" class="panel-body">
-      		<form id="userform" class="form-horizontal" action="${pageContext.request.contextPath}/servlet/user/doCreate" method="post">
-        		<div class="form-group">
-      		    <label for="firstName" class="col-sm-5 control-label">First Name</label>
-      		    <div class="col-sm-7">
-      		      <input class="form-control" type="text" id="firstName" name="firstName" value="${user.firstName}" />
-      		    </div>
-      		  </div>
-        		<div class="form-group">
-      		    <label for="lastName" class="col-sm-5 control-label">Last Name</label>
-      		    <div class="col-sm-7">
-      		      <input class="form-control" type="text" id="lastName" name="lastName"   value="${user.lastName}"/>
-      		    </div>
-      		  </div>
-        		<div class="form-group">
-      		    <label for="email" class="col-sm-5 control-label">Email</label>
-      		    <div class="col-sm-7">
-      		      <input class="form-control" type="text" id="email" name="email"  value="${user.email}" />
-      		    </div>
-      		  </div>
-            <hr/>
-            
-      			<div id="divButtonPanelId" class="text-center">
-      				<button id="btnSubmit" class="btn btn-primary" type="button" value="Add User" onclick="createUser();">Add User</button>
-      				<button id="btnClose" class="btn btn-default" type="button"  onclick="closePage();">Cancel</button>
-      			</div>
-      		</form>
-      	</div>
-      </div>
+<hr/>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div id="divPanelId" class="panel panel-default">
+    	<div id="divPanelHeadingId" class="panel-heading">
+    		<h3 class="panel-title"> Fill out all fields to add a new user
+    		  <span class="text-danger">${msg}</span>
+    		</h3>
+    	</div>
+    	<div id="divPanelBodyId" class="panel-body">
+    		<form id="userform" class="form-horizontal" action="${pageContext.request.contextPath}/servlet/user/doCreate" method="post">
+      		<div class="form-group">
+    		    <label for="firstName" class="col-sm-3 control-label">First Name</label>
+    		    <div class="col-sm-9">
+    		      <input class="form-control" type="text" id="firstName" name="firstName" value="${user.firstName}" />
+    		    </div>
+    		  </div>
+      		<div class="form-group">
+    		    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+    		    <div class="col-sm-9">
+    		      <input class="form-control" type="text" id="lastName" name="lastName"   value="${user.lastName}"/>
+    		    </div>
+    		  </div>
+      		<div class="form-group">
+    		    <label for="email" class="col-sm-3 control-label">Email</label>
+    		    <div class="col-sm-9">
+    		      <input class="form-control" type="text" id="email" name="email"  value="${user.email}" />
+    		    </div>
+    		  </div>
+          <hr/>
+          
+    			<div id="divButtonPanelId" class="text-center">
+    				<button id="btnSubmit" class="btn btn-primary" type="button" value="Add User" onclick="createUser();">Add User</button>
+    				<button id="btnClose" class="btn btn-default" type="button"  onclick="closePage();">Cancel</button>
+    			</div>
+    		</form>
+    	</div>
     </div>
   </div>
 </div>
