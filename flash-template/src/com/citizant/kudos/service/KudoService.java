@@ -15,4 +15,6 @@ public interface KudoService {
 	public List<KudoBean> getAllKudos();
 	public void saveKudo(KudoBean kudoBean);
 	public List<KudoBean> getKudosReceived(String email);
+	
+	public List<UserBean> getHomeUsers(UserBean formUser);
 }

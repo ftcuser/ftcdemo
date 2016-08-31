@@ -56,29 +56,10 @@ public class KudoController extends BaseController {
 		kudoService.saveKudo(kudoBean);
 		mav.addObject("msg", "1 kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
 		
-		//to do :
-		List<UserBean> users = kudoService.getUsers();
-		List<UserBean> newList = new ArrayList<>();
-		for (UserBean user : users) {
-			if (user.getEmail().equals(fromUser.getEmail())) {
-				continue;
-			}
-			setUserKudoReceivedFlag(user, fromUser.getEmail());
-			newList.add(user);
-		}
-		mav.addObject("users", newList);
+		mav.addObject("users", kudoService.getHomeUsers(fromUser));
 
 		return mav;
 	}
 	
-	private void setUserKudoReceivedFlag(UserBean user, String email) {
-		List<KudoBean> kudosReceived = kudoService.getKudosReceived(user.getEmail());
-		Date today = new Date();
-		for (KudoBean kb : kudosReceived) {
-			if (kb.getFromEmail().equals(email) &&
-				dateFormatter.format(kb.getKudoDate()).equals(dateFormatter.format(today))) {
-				user.setKudoReceived(true);
-			}
-		}
-	}
+
 }
