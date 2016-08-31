@@ -36,7 +36,7 @@
 			<c:choose>
 			<c:when test="${user.kudoReceived}">
   		  	Received Kudo Already!
-  		    </c:when>    
+  		    </c:when>
 			<c:otherwise>
 			<a href="#" id="${user.email}" class="btn btn-sm btn-primary" onclick="javascript:giveKudo('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a>
 			</c:otherwise>
@@ -59,7 +59,7 @@
         <ol>
           <li>On (this) Kudos page, find the person you would like to give kudos to.</li>
           <li>Use the <a class="btn btn-primary btn-sm" disabled><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a> button to initiate kudos.</li>
-          <li>On the next page, fill in the category and optional comment fields.</li>
+          <li>On the next page, fill in the category and optional comment and attachment fields.</li>
           <li>Send the kudos by clicking the <a class="btn btn-primary btn-sm" disabled>Give Kudo</a> button.</li>
         </ol> 
       </div>

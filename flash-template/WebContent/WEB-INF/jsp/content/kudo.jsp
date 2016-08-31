@@ -38,18 +38,22 @@
     		      </select>
     		    </div>
     		  </div>
+
+    		  <hr/>
+    		  
       		<div class="form-group">
-    		    <label for="comment" class="col-sm-3 control-label">Comments <small><i>(optional)</i></small>  </label>
+    		    <label for="comment" class="col-sm-3 control-label">Comments <small><i>(optional)</i></small></label>
     		    <div class="col-sm-9">
     		      <textarea class="form-control" id="comment" name="comment"></textarea>
     		    </div>
     		  </div>
- 			<div class="form-group">
-    		    <label for="attachment" class="col-sm-3 control-label">Attachment</label>
+     			<div class="form-group">
+    		    <label for="attachment" class="col-sm-3 control-label">Attachment <small><i>(optional)</i></small></label>
     		    <div class="col-sm-9">
     		      <input type="file" class="form-control" id="attachment" name="attachment"/>
     		    </div>
     		  </div>
+    		  
           <hr/>
 
     			<div id="divButtonPanelId" class="text-right">
