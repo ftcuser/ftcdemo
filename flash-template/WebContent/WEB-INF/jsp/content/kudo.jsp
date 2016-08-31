@@ -41,7 +41,7 @@
       		<div class="form-group">
     		    <label for="comment" class="col-sm-3 control-label">Comments</label>
     		    <div class="col-sm-9">
-    		      <textarea class="form-control" type="text" id="comment" name="comment"></textarea>
+    		      <textarea class="form-control" id="comment" name="comment"></textarea>
     		    </div>
     		  </div>
 
