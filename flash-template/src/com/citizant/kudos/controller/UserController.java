@@ -30,7 +30,7 @@ public class UserController extends BaseController {
 	@RequestMapping("/doCreate")
 	public ModelAndView doCreateUser(HttpServletRequest request) {
 		kudoService.saveUser(makeUserBeanFromRequest(request));
-		ModelAndView mav = new ModelAndView("tile.listUserPage");
+		ModelAndView mav = new ModelAndView("tile.startPage");
 		List<UserBean> users = kudoService.getUsers();
 		mav.addObject("users", users);
 		return mav;
@@ -67,13 +67,17 @@ public class UserController extends BaseController {
 		userBean.setEmail(request.getParameter("email"));
 		userBean.setFirstName(request.getParameter("firstName"));
 		userBean.setLastName(request.getParameter("lastName"));
-		userBean.setPassword(request.getParameter("password"));
+		userBean.setPassword("12345");
 		userBean.setRole(request.getParameter("role"));
-		if (request.getParameter("active") != null) {
-			userBean.setActive(true);
-		} else {
+		userBean.setActive(true);
+		/**
+		 * 
+		*if (request.getParameter("active") != null) {
+		*	userBean.setActive(true);
+		*} else {
 			userBean.setActive(false);
 		}
+		*/
 		return userBean;
 	}
 
