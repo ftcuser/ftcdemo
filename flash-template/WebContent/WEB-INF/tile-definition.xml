@@ -36,5 +36,7 @@
      <definition name="tile.listUserPage" extends="dhsLayout">     
         <put-attribute name="body-content" value="/WEB-INF/jsp/content/listUser.jsp" />
     </definition>
-       
+    <definition name="tile.kudoPage" extends="dhsLayout">     
+        <put-attribute name="body-content" value="/WEB-INF/jsp/content/kudo.jsp" />
+    </definition>
  </tiles-definitions>    
