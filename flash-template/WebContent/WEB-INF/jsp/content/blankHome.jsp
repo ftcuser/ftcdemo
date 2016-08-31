@@ -12,43 +12,30 @@
 
 <hr/>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div id="tasksPanel" class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"></h3>
-      </div>
-      <div class="panel-body">
-        <div class="list-group">
 <table id="receivedTable" class="table table-striped table-bordered" width="100%">
-		<thead>
-			<tr>
-				<th>Email</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>&nbsp;</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="user" items="${users}">
-			<tr>
-				<td>${user.email}</td>
-				<td>${user.firstName}</td>
-				<td>${user.lastName}</td>
+	<thead>
+		<tr>
+			<th>Email</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach var="user" items="${users}">
+		<tr>
+			<td>${user.email}</td>
+			<td>${user.firstName}</td>
+			<td>${user.lastName}</td>
 
-				<td><a href="#" onclick="javascript:giveKudo('${user.email}');">Give Kudos</a>
-				</td>						
-			</tr>
-	      </c:forEach>
-		
-		</tbody>
-	</table>
+			<td class="text-center">
+  		  <a href="#" class="btn btn-sm btn-primary" onclick="javascript:giveKudo('${user.email}');"><i class="glyphicon glyphicon-star-empty"></i> Give Kudos</a>
+		  </td>						
+		</tr>
+    </c:forEach>
+	</tbody>
+</table>
 
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <script>
 
 function giveKudo(email) {
