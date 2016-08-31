@@ -1,4 +1,4 @@
-	package com.citizant.kudos;
+package com.citizant.kudos;
 
 	import java.io.IOException;
 	import java.net.URL;
@@ -13,7 +13,7 @@
 	import org.openqa.selenium.remote.RemoteWebDriver;
 	import org.openqa.selenium.remote.DesiredCapabilities;
 
-	public class LoginWebTest {
+	public class AddUserWebTest {
 		private static String seleniumHub= "http://54.174.151.21:4444/wd/hub";
 		private static String startPage = "http://54.196.239.109:8090/kudos";
 		private  static WebDriver driver;
@@ -35,19 +35,24 @@
 		    driver.findElement(By.id("email_id")).sendKeys("admin@kudo.com");
 		    driver.findElement(By.id("password_id")).sendKeys("12345");
 		    driver.findElement(By.id("btnSubmit")).click();
-		    
-		   // Assert.assertEquals(driver.getTitle(),"Flash");
-		    //driver.findElement(By.linkText("Add a User")).click();
+		   	    
+		    Assert.assertEquals(driver.getTitle(),"Flash");
+		    driver.findElement(By.linkText("Add a User")).click();
 		    String URL = driver.getCurrentUrl();
-		    Assert.assertEquals(URL, "http://54.196.239.109:8090/kudos/servlet/home/doLogin");
+		    Assert.assertEquals(URL, "http://54.196.239.109:8090/kudos/servlet/user/startCreate");
+		    		    
+		    driver.findElement(By.id("firstName")).sendKeys("test");
+		    driver.findElement(By.id("lastName")).sendKeys("demo1");
+		    driver.findElement(By.id("email")).sendKeys("testdemo1@kudo.com");
+		    driver.findElement(By.id("btnSubmit")).click();
+		    
 		    
 		}
 		    
 		    @AfterClass	    
 			public static void  tearDownDriver(){	
 				driver.quit();
-				
+		   
 		}
 		  }
-		
 	

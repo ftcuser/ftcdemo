@@ -39,7 +39,7 @@
     		    </div>
     		  </div>
       		<div class="form-group">
-    		    <label for="comment" class="col-sm-3 control-label">Comments</label>
+    		    <label for="comment" class="col-sm-3 control-label">Comments <small><i>(optional)</i></small>  </label>
     		    <div class="col-sm-9">
     		      <textarea class="form-control" id="comment" name="comment"></textarea>
     		    </div>
