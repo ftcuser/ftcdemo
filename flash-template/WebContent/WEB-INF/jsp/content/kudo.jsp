@@ -23,7 +23,7 @@
       		</h3>
       	</div>
       	<div id="divPanelBodyId" class="panel-body">
-      		<form id="userform" class="form-horizontal" action="${pageContext.request.contextPath}/servlet/kudo/doCreate" method="post">
+      		<form id="userform" class="form-horizontal" action="${pageContext.request.contextPath}/servlet/kudo/create" method="post">
         		<input type="hidden" name="kudoto" id="kudoto" value="${user.email}"/>
         		<div class="form-group">
         		
