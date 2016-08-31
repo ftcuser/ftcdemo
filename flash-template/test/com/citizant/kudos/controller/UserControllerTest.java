@@ -44,7 +44,7 @@ public class UserControllerTest {
         UserBean ub = controller.makeUserBeanFromRequest(req);
 
 		Assert.assertEquals("William Joel <billy.joel@example.com>", formatEmail(ub.getFirstName(), ub.getLastName(), ub.getEmail()));
-		Assert.assertEquals("4theLongesttime", ub.getPassword());
+		Assert.assertEquals("12345", ub.getPassword());
 	}
 	
 
