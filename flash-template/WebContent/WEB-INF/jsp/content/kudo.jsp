@@ -33,8 +33,8 @@
       		    <div class="col-sm-7">
       		      <select name="category" id="category">
       		      	<option value="Teamwork">Teamwork</option>
-      		      	<option value="Improvement"></option>
-      		      	<option value="Delivery">Improvement</option>
+      		      	<option value="Improvement">Improvement</option>
+      		      	<option value="Delivery">Delivery</option>
       		      	<option value="Experiment">Experiment</option>    		      	
       		      </select>
       		    </div>
