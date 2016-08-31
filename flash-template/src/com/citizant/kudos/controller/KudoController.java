@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.citizant.kudos.bean.UserBean;
+import com.citizant.kudos.common.AppConstants;
 import com.citizant.kudos.service.KudoService;
 
 @Controller
@@ -30,10 +31,16 @@ public class KudoController extends BaseController {
 	
 	@RequestMapping("/create")
 	public ModelAndView create(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("tile.kudoPage");
-	//	UserBean fromUser = this.getL
-		UserBean user = kudoService.getUserByEmail(request.getParameter("email"));
-		mav.addObject("user", user);
+		ModelAndView mav = new ModelAndView("tile.startPage");
+		UserBean fromUser = (UserBean)request.getSession().getAttribute(AppConstants.LOGIN_USER);
+		UserBean toUser = kudoService.getUserByEmail(request.getParameter("kudoto"));
+		
+		mav.addObject("msg", "Kudo sent to " + toUser.getFirstName() + " " + toUser.getLastName());
+		
+		//to do :
+	
+		List<UserBean> users = kudoService.getUsers();
+		mav.addObject("users", users);
 		return mav;
 	}
 }

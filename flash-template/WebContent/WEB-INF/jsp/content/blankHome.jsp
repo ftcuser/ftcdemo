@@ -11,7 +11,7 @@
 <h2>Kudos</h2>
 
 <hr/>
-
+<b>${msg}</b>
 <table id="receivedTable" class="table table-striped table-bordered" width="100%">
 	<thead>
 		<tr>
