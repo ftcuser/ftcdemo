@@ -8,17 +8,26 @@ body {
   margin-right: auto;
 }
 
-a {
+a,
+.navbar-default .navbar-link {
   color: #00578d;
 }
 
 a:hover,
-a:focus {
+a:focus,
+.navbar-default .navbar-link:hover,
+.navbar-default .navbar-link:focus {
   color: #555;
 }
 
 h2 + .btn {
   margin-top: 20px;
+}
+
+.navbar-default {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 0px;
 }
 
 .btn .glyphicon {
@@ -28,8 +37,12 @@ h2 + .btn {
 .page-header {
   margin-top: 0;
   background-color: #0D2235;
-	padding: 5px 20px;
+	padding: 5px 20px 10px;
 	color: white;
+}
+
+.page-header + .navbar {
+  margin-top: -20px;
 }
 
 #branding h1 {
