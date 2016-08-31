@@ -36,27 +36,26 @@
         </div>
       </div>
     </div>
-    
+
     <div id="branding" class="clearfix">
       <ul id="systemInfo" class="list-inline small">
         <li>AWS Region : <%=SystemConfig.getInstance().getAWSRegion().getName() %></li>
         <li>Environment : <%=SystemConfig.getInstance().getEnv() %></li>
-        <%if(userBean != null) { %>
-          <li>User : <%=userBean.getEmail() %></li>
-        <% } %>
       </ul>
-    
+
       <div id="logo" class="pull-left"><img src="${pageContext.request.contextPath}/images/dhs.png" width="100px" height="100px"></div>
       <h1 class="pull-left">FLASH</h1>
     </div>
-    
-    <div id="menulink">
-      <%if(userBean != null) { %>
-       <a  href="javascript:confirmLogout();">Logout</a>
-       <%} %>
-    </div>
   </div>
 </div>
+
+<%if(userBean != null) { %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">Signed in as <%=userBean.getEmail() %> <a class="navbar-link" href="javascript:confirmLogout();">(Logout)</a></p>
+  </div>
+</nav>
+<%} %>
 
 <script>
 
