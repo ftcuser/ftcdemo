@@ -20,7 +20,30 @@
       </div>
       <div class="panel-body">
         <div class="list-group">
-<!--           <a href="#" class="list-group-item"></a> -->
+<table id="receivedTable" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Email</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="user" items="${users}">
+			<tr>
+				<td>${user.email}</td>
+				<td>${user.firstName}</td>
+				<td>${user.lastName}</td>
+
+				<td><a href="#" onclick="javascript:editUser('${user.email}');">Give Kudos</a>
+				</td>						
+			</tr>
+	      </c:forEach>
+		
+		</tbody>
+	</table>
+
         </div>
       </div>
     </div>

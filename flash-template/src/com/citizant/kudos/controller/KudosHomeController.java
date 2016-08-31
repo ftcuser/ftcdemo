@@ -63,7 +63,7 @@ public class KudosHomeController extends BaseController {
         if(requestHasCorrectPasswordForUser(request, userBean)) {
             mav.setViewName(START_TILE);
             request.getSession().setAttribute(AppConstants.LOGIN_USER, userBean);
-            return mav;
+            return startPage(request);
         }
 
 		//login  failed
@@ -88,7 +88,10 @@ public class KudosHomeController extends BaseController {
 	public ModelAndView startPage(HttpServletRequest request) {
 		UserBean userBean = (UserBean)request.getSession().getAttribute(AppConstants.LOGIN_USER);
 		if (userBean != null) {
-			return new ModelAndView(START_TILE);
+			ModelAndView mav = new ModelAndView(START_TILE);
+			List<UserBean> users = kudoService.getUsers();
+			mav.addObject("users", users);
+			return mav;
 		}
 		return new ModelAndView(LOGIN_TILE);
 	}
