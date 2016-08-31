@@ -8,7 +8,7 @@
 	UserBean userBean = (UserBean)session.getAttribute(AppConstants.LOGIN_USER);
 %>
 
-<h2>Home</h2>
+<h2>Kudos</h2>
 
 <hr/>
 
@@ -16,7 +16,7 @@
   <div class="col-sm-6">
     <div id="tasksPanel" class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Tasks Panel</h3>
+        <h3 class="panel-title"></h3>
       </div>
       <div class="panel-body">
         <div class="list-group">
@@ -36,7 +36,7 @@
 				<td>${user.firstName}</td>
 				<td>${user.lastName}</td>
 
-				<td><a href="#" onclick="javascript:editUser('${user.email}');">Give Kudos</a>
+				<td><a href="#" onclick="javascript:giveKudo('${user.email}');">Give Kudos</a>
 				</td>						
 			</tr>
 	      </c:forEach>
@@ -49,3 +49,20 @@
     </div>
   </div>
 </div>
+<script>
+
+function giveKudo(email) {
+	document.location = "${pageContext.request.contextPath}/servlet/kudo/start?email=" + email;
+}
+$(document).ready(function() {
+	if($("#receivedTable")!=null) {
+		$("#receivedTable").dataTable( {
+			"responsive" : true,
+			"aaSorting":[[0, "asc"]],
+			"iDisplayLength" : 10,
+			"oLanguage": {"sSearch": "Filter: "}
+		});
+	}
+
+});
+</script>

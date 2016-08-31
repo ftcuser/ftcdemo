@@ -62,15 +62,11 @@ function deleteUser(email){
 }
 
 function editUser(email){
-<<<<<<< HEAD:flash-template/WebContent/WEB-INF/jsp/content/userList.jsp
 
-		document.location = "${pageContext.request.contextPath}/servlet/admin/editUser?email=" + email;
-
-=======
 	
 		document.location = "${pageContext.request.contextPath}/servlet/user/edit?email=" + email;
 	
->>>>>>> origin/master:flash-template/WebContent/WEB-INF/jsp/content/listUser.jsp
+
 }
 $(document).ready(function() {
 	if($("#receivedTable")!=null) {

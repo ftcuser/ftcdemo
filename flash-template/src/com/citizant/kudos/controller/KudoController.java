@@ -18,9 +18,9 @@ public class KudoController extends BaseController {
 	private KudoService kudoService;
 
 	
-	@RequestMapping("/list")
-	public ModelAndView userListPage() {
-		ModelAndView mav = new ModelAndView("tile.Page");
+	@RequestMapping("/start")
+	public ModelAndView kudoPage() {
+		ModelAndView mav = new ModelAndView("tile.kudoPage");
 		List<UserBean> users = kudoService.getUsers();
 		mav.addObject("users", users);
 		return mav;
