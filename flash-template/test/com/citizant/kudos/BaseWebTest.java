@@ -13,11 +13,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 @Ignore
 public class BaseWebTest {
-
-	protected static final String seleniumHub = "http://ec2-54-174-151-21.compute-1.amazonaws.com:4444/wd/hub";
-
-	protected static final String baseURL = "http://54.196.239.109:8090/kudos/";
-
+	private static String seleniumHub= "http://50.19.179.31:4444/wd/hub";
+	private static String startPage = "http://50.19.150.209:8090/kudos";
 	protected static WebDriver driver;
 
 	public static void setUpRemoteWebDriver() throws IOException
