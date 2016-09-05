@@ -39,7 +39,7 @@
 		   // Assert.assertEquals(driver.getTitle(),"Flash");
 		    //driver.findElement(By.linkText("Add a User")).click();
 		    String URL = driver.getCurrentUrl();
-		    Assert.assertEquals(URL, "http://54.196.239.109:8090/kudos/servlet/home/doLogin");
+		    Assert.assertEquals(URL, "http://50.19.150.209:8090/kudos/servlet/home/doLogin");
 		    
 		}
 		    
