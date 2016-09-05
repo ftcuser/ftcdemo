@@ -39,7 +39,7 @@ package com.citizant.kudos;
 		    Assert.assertEquals(driver.getTitle(),"Flash");
 		    driver.findElement(By.linkText("Add a User")).click();
 		    String URL = driver.getCurrentUrl();
-		    Assert.assertEquals(URL, "http://54.196.239.109:8090/kudos/servlet/user/startCreate");
+		    Assert.assertEquals(URL, "http://50.19.150.209:8090/kudos/servlet/user/startCreate");
 		    		    
 		    driver.findElement(By.id("firstName")).sendKeys("test");
 		    driver.findElement(By.id("lastName")).sendKeys("demo1");
