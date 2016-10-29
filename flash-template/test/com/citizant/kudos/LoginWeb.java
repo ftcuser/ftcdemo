@@ -13,7 +13,7 @@
 	import org.openqa.selenium.remote.RemoteWebDriver;
 	import org.openqa.selenium.remote.DesiredCapabilities;
 
-	public class LoginWebTest {
+	public class LoginWeb {
 		private static String seleniumHub= "http://50.19.179.31:4444/wd/hub";
 		private static String startPage = "http://50.19.150.209:8090/kudos";
 		private  static WebDriver driver;
