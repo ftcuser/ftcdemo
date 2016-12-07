@@ -11,7 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
-
+@ignore
 public class BaseWebTest {
 	private static String seleniumHub= "http://50.19.179.31:4444/wd/hub";
 	private static String startPage = "http://50.19.150.209:8090/kudos";
