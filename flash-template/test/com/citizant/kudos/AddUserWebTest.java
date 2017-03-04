@@ -30,8 +30,9 @@ package com.citizant.kudos;
 				    
 		    public void testSeleniumInfrastructure() throws IOException, InterruptedException {   
 			driver.get(startPage);
-			Assert.assertEquals(driver.getTitle(),"Flash");
+			Assert.assertEquals(driver.getTitle(),"50.19.179.31");
 		    
+		    /*
 		    driver.findElement(By.id("email_id")).sendKeys("admin@kudo.com");
 		    driver.findElement(By.id("password_id")).sendKeys("12345");
 		    driver.findElement(By.id("btnSubmit")).click();
@@ -45,7 +46,7 @@ package com.citizant.kudos;
 		    driver.findElement(By.id("lastName")).sendKeys("demo1");
 		    driver.findElement(By.id("email")).sendKeys("testdemo1@kudo.com");
 		    driver.findElement(By.id("btnSubmit")).click();
-		    
+		    */
 		    
 		}
 		    
