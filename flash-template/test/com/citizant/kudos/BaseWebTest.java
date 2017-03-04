@@ -19,7 +19,7 @@ public class BaseWebTest {
 
 	public static void setUpRemoteWebDriver() throws IOException
 	{
-	    Capabilities cap = DesiredCapabilities.firefox();
+	    Capabilities cap = DesiredCapabilities.chrome();
 	    driver = new RemoteWebDriver(new URL(seleniumHub),cap);
 	}
 
