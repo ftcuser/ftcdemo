@@ -14,14 +14,14 @@
 	import org.openqa.selenium.remote.DesiredCapabilities;
 
 	public class LoginWebTest {
-		private static String seleniumHub= "http://54.144.179.45:4444/wd/hub";
+		private static String seleniumHub= "http://50.19.179.31:4444/wd/hub";
 		private static String startPage = "http://50.19.179.31:9090/jenkinsmanager/index.html";
 		private  static WebDriver driver;
 		
 		@BeforeClass
 		public static void setUpDriver() throws IOException
 		{								
-		    Capabilities cap = DesiredCapabilities.chrome();	    
+		    Capabilities cap = DesiredCapabilities.firefox();	    
 		    driver = new RemoteWebDriver(new URL(seleniumHub),cap);	   
 		}
 			   
@@ -30,7 +30,7 @@
 				    
 		    public void testSeleniumInfrastructure() throws IOException, InterruptedException {   
 			driver.get(startPage);
-			Assert.assertEquals(driver.getTitle(),"50.19.179.31");
+			Assert.assertEquals(driver.getTitle(),"Jenkins Kiosk");
 		    
 		    /*
 		    driver.findElement(By.id("email_id")).sendKeys("admin@kudo.com");
