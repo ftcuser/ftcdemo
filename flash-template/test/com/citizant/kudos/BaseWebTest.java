@@ -14,12 +14,12 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 @Ignore
 public class BaseWebTest {
 	private static String seleniumHub= "http://50.19.179.31:4444/wd/hub";
-	private static String startPage = "http://50.19.150.209:8090/kudos";
+	private static String startPage = "http://50.19.179.31:9090/jenkinsmanager/index.html";
 	protected static WebDriver driver;
 
 	public static void setUpRemoteWebDriver() throws IOException
 	{
-	    Capabilities cap = DesiredCapabilities.chrome();
+	    Capabilities cap = DesiredCapabilities.firefox();
 	    driver = new RemoteWebDriver(new URL(seleniumHub),cap);
 	}
 
