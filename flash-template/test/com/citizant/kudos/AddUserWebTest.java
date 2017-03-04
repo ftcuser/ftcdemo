@@ -14,7 +14,7 @@ package com.citizant.kudos;
 	import org.openqa.selenium.remote.DesiredCapabilities;
 
 	public class AddUserWebTest {
-		private static String seleniumHub= "http://54.144.179.45:4444/wd/hub;
+		private static String seleniumHub= "http://54.144.179.45:4444/wd/hub";
 		private static String startPage = "http://50.19.179.31:9090/jenkinsmanager/index.html";
 		private  static WebDriver driver;
 		
