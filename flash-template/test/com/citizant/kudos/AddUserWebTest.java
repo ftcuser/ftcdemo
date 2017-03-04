@@ -21,7 +21,7 @@ package com.citizant.kudos;
 		@BeforeClass
 		public static void setUpDriver() throws IOException
 		{								
-		    Capabilities cap = DesiredCapabilities.firefox();	    
+		    Capabilities cap = DesiredCapabilities.chrome();	    
 		    driver = new RemoteWebDriver(new URL(seleniumHub),cap);	   
 		}
 			   
