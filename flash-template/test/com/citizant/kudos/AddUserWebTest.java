@@ -30,7 +30,7 @@ package com.citizant.kudos;
 				    
 		    public void testSeleniumInfrastructure() throws IOException, InterruptedException {   
 			driver.get(startPage);
-			Assert.assertEquals(driver.getTitle(),"50.19.179.31");
+			Assert.assertEquals(driver.getTitle(),"Jenkins Kiosk");
 		    
 		    /*
 		    driver.findElement(By.id("email_id")).sendKeys("admin@kudo.com");
